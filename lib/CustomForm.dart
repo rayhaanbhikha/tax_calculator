@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tax_calc/MyTextFormField.dart';
 import './MyRaisedButton.dart';
 import './MyTaxForm.dart';
-
 
 class CustomForm extends StatefulWidget {
   @override
@@ -10,12 +10,9 @@ class CustomForm extends StatefulWidget {
 }
 
 class CustomFormState extends State<CustomForm> {
-
-
   @override
   Widget build(BuildContext context) {
-    final TaxForm _taxForm = Provider.of<TaxForm>(context);
-    final validate = new Validate();
+    final MyTaxForm _taxForm = Provider.of<MyTaxForm>(context);
     final _formKey = GlobalKey<FormState>();
 
     onSubmit() {
@@ -24,7 +21,7 @@ class CustomFormState extends State<CustomForm> {
         form.save();
         _taxForm.save();
         Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text("Processing Data: ${_taxForm.firstName}"),
+          content: Text("Processing Data"),
         ));
       }
     }
@@ -34,33 +31,18 @@ class CustomFormState extends State<CustomForm> {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(30.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    labelText: "FirstName",
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                        borderSide: BorderSide()),
-                    labelStyle: TextStyle(color: Colors.purple)),
-                validator: (val) => validate("Please enter your name", val),
-                onSaved: (val) => setState(() {
-                      _taxForm.firstName = val;
-                    }),
+            MyTextFormField(
+                labelText: "First Name",
+                errorMsg: "Please enter your firstName",
+                onSaved: (val) => _taxForm.firstName = val,
               ),
-            ),
+            MyTextFormField(
+                labelText: "Last Name",
+                errorMsg: "Please enter your firstName",
+                onSaved: (val) => _taxForm.lastName = val
+              ),
             MyRaisedButton(onSubmit)
           ]),
     );
-  }
-}
-
-class Validate {
-  call(String errorMessage, String value) {
-    if (value.isEmpty) {
-      return errorMessage;
-    }
-    return null;
   }
 }

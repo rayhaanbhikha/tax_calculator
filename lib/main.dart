@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tax_calc/MyTaxForm.dart';
 import './CustomForm.dart';
 
 void main() => runApp(MyApp());
@@ -9,11 +10,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: ThemeData.dark(),
         home: Scaffold(
             appBar: AppBar(title: Text("Tax Form")),
-            body: Center(child: CustomForm())));
+            body: ChangeNotifierProvider(
+                builder: (context) => MyTaxForm(),
+                child: CustomForm())
+                )
+            );
   }
 }

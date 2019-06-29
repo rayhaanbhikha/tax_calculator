@@ -1,15 +1,11 @@
 class TaxForm {
   String firstName, lastName;
-  int age, salary;
 
   @override
   String toString() {
     return """
-     first name: ${this.firstName}
+     first name: $firstName,
+     last name: $lastName
     """;
-  }
-
-  void save() {
-    print(this.toString());
   }
 }
