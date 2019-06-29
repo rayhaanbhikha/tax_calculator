@@ -53,6 +53,7 @@ class _Question extends StatelessWidget {
     return Text(
       questionText,
       style: TextStyle(
+          color: Colors.black54,
           fontSize: 15,
           fontWeight: FontWeight.w600,
           fontStyle: FontStyle.italic),
