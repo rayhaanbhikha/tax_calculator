@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './MyRaisedButton.dart';
-import './TaxForm.dart';
+import './MyTaxForm.dart';
 
 
 class CustomForm extends StatefulWidget {
@@ -9,23 +10,25 @@ class CustomForm extends StatefulWidget {
 }
 
 class CustomFormState extends State<CustomForm> {
-  final TaxForm _taxForm = new TaxForm();
-  final validate = new Validate();
-  final _formKey = GlobalKey<FormState>();
 
-  onSubmit() {
-    final form = _formKey.currentState;
-    if (form.validate()) {
-      form.save();
-      _taxForm.save();
-      Scaffold.of(context).showSnackBar(SnackBar(
-        content: Text("Processing Data: ${_taxForm.firstName}"),
-      ));
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
+    final TaxForm _taxForm = Provider.of<TaxForm>(context);
+    final validate = new Validate();
+    final _formKey = GlobalKey<FormState>();
+
+    onSubmit() {
+      final form = _formKey.currentState;
+      if (form.validate()) {
+        form.save();
+        _taxForm.save();
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text("Processing Data: ${_taxForm.firstName}"),
+        ));
+      }
+    }
+
     return Form(
       key: _formKey,
       child: Column(
