@@ -17,35 +17,9 @@ class SalaryScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(10),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(5)),
-              height: 40,
-              child: Row(
-                children: <Widget>[
-                  _CurrencyIcon(),
-                  Flexible(
-                    child: SalaryTextField(),
-                  )
-                ],
-              ),
-            )
+            Container(height: 40, child: SalaryTextField())
           ],
         ));
-  }
-}
-
-class _CurrencyIcon extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // height: 40,
-      // color: Colors.grey,
-      child: Icon(
-        Icons.attach_money,
-      ),
-    );
   }
 }
 
@@ -57,16 +31,13 @@ class SalaryTextField extends StatelessWidget {
       fontStyle: FontStyle.italic);
 
   static final inputDecoration = InputDecoration(
-      fillColor: Colors.white,
-      filled: true,
+      prefixIcon: Icon(Icons.attach_money, color: Colors.greenAccent),
       labelText: "Enter Salary",
       labelStyle: labelTextStyle,
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            style: BorderStyle.solid, 
-            width: 0.25,
-            color: Colors.pink)));
+              style: BorderStyle.solid, width: 0.25, color: Colors.pink)));
 
   final textField = TextField(
       style: TextStyle(color: Colors.orange),
@@ -75,11 +46,9 @@ class SalaryTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return Theme(
-          data: Theme.of(context).copyWith(
-              hintColor: Colors.pink,
-              primaryColor: Colors.green
-              ),
-          child: textField);
+    return Theme(
+        data: Theme.of(context).copyWith(
+            primaryColor: Colors.green, backgroundColor: Colors.black),
+        child: textField);
   }
 }
