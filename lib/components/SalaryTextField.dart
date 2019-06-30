@@ -16,11 +16,6 @@ class SalaryTextField extends StatelessWidget {
           borderSide: BorderSide(
               style: BorderStyle.solid, width: 0.25, color: Colors.pink)));
 
-  final textField = TextField(
-      style: TextStyle(color: Colors.orange),
-      keyboardType: TextInputType.number,
-      decoration: inputDecoration);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +23,15 @@ class SalaryTextField extends StatelessWidget {
         child: Theme(
             data: Theme.of(context).copyWith(
                 primaryColor: Colors.green, backgroundColor: Colors.black),
-            child: textField));
+            child: TextFormField(
+                style: TextStyle(color: Colors.orange),
+                keyboardType: TextInputType.number,
+                decoration: inputDecoration, 
+                validator: (val) {
+                  if(val.isEmpty) {
+                    return "Please enter your salary";
+                  }
+                  return null;
+                },)));
   }
 }
