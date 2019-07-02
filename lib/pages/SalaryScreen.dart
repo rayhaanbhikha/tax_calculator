@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tax_calc/components/MainText.dart';
+import 'package:tax_calc/components/MyCard.dart';
 import 'package:tax_calc/components/RadioButtons.dart';
 import 'package:tax_calc/components/SalaryTextField.dart';
 
@@ -29,7 +30,7 @@ class SalaryTemplate extends StatelessWidget {
             Padding(padding: EdgeInsets.all(10)),
             SalaryTextField(),
             Padding(padding: EdgeInsets.all(10)),
-            MyRadioButtons()
+            MyCard(child: MyRadioButtons(),)
           ],
         ));
   }

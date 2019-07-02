@@ -15,15 +15,8 @@ class _MyRadioButtonsState extends State<MyRadioButtons> {
     });
   }
 
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           radioButton(0, "Every Hour"),
@@ -32,8 +25,7 @@ class _MyRadioButtonsState extends State<MyRadioButtons> {
           radioButton(3, "Every Month"),
           radioButton(4, "Every Year"),
         ],
-      ),
-    );
+      );
   }
 
   Widget radioButton(int value, String radioText) {
