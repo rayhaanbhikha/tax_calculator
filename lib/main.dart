@@ -10,15 +10,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primaryColor: Colors.blue[200]
-        ),
-        home: Scaffold(
-            appBar: AppBar(title: Text("Tax Form"), centerTitle: true,),
-            body: ChangeNotifierProvider(
-                builder: (context) => MyTaxForm(),
-                child: SalaryScreen())
-                )
-            );
+        theme: ThemeData(primaryColor: Colors.blue[200]),
+        home: ChangeNotifierProvider(
+            builder: (context) => MyTaxForm(), child: SalaryPage()));
   }
 }

@@ -4,6 +4,18 @@ import 'package:flutter/rendering.dart';
 import 'package:tax_calc/components/MainText.dart';
 import 'package:tax_calc/components/SalaryTextField.dart';
 
+class SalaryPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Tax Form"),
+          centerTitle: true,
+        ),
+        body: SalaryScreen());
+  }
+}
+
 class SalaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,9 +56,9 @@ class _MyRadioButtonsState extends State<MyRadioButtons> {
     return Container(
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(10.0),
-        ),
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(10.0),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
