@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blue[200]
         ),
         home: Scaffold(
-            appBar: AppBar(title: Text("Tax Form")),
+            appBar: AppBar(title: Text("Tax Form"), centerTitle: true,),
             body: ChangeNotifierProvider(
                 builder: (context) => MyTaxForm(),
                 child: SalaryScreen())
