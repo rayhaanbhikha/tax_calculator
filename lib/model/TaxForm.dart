@@ -1,11 +1,14 @@
 class TaxForm {
-  String firstName, lastName;
+  String salary;
+  RateOfPay rateOfPay;
 
   @override
   String toString() {
     return """
-     first name: $firstName,
-     last name: $lastName
+      salary: $salary,
+      rateOfPay: ${rateOfPay.toString()}
     """;
   }
 }
+
+enum RateOfPay { hour, day, week, month, year }

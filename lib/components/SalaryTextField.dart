@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tax_calc/MyTaxForm.dart';
 
 class SalaryTextField extends StatelessWidget {
   static final labelTextStyle = TextStyle(
@@ -18,20 +20,23 @@ class SalaryTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyTaxForm _taxForm = Provider.of<MyTaxForm>(context);
     return Container(
         height: 40,
         child: Theme(
             data: Theme.of(context).copyWith(
                 primaryColor: Colors.green, backgroundColor: Colors.black),
             child: TextFormField(
-                style: TextStyle(color: Colors.orange),
-                keyboardType: TextInputType.number,
-                decoration: inputDecoration, 
-                validator: (val) {
-                  if(val.isEmpty) {
-                    return "Please enter your salary";
-                  }
-                  return null;
-                },)));
+              style: TextStyle(color: Colors.orange),
+              keyboardType: TextInputType.number,
+              decoration: inputDecoration,
+              validator: (val) {
+                if (val.isEmpty) {
+                  return "Please enter your salary";
+                }
+                return null;
+              },
+              onSaved: (val) => _taxForm.salary = val,
+            )));
   }
 }

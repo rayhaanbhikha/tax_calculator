@@ -4,17 +4,10 @@ import 'package:tax_calc/model/TaxForm.dart';
 class MyTaxForm with ChangeNotifier {
   TaxForm _taxForm = TaxForm();
 
-  String get firstName => _taxForm.firstName;
+  String get salary => _taxForm.salary;
 
-  set firstName(String newFirstName) {
-    _taxForm.firstName = newFirstName;
-    notifyListeners();
-  }
-
-  String get lastName => _taxForm.lastName;
-
-  set lastName(String newLastName) {
-    _taxForm.lastName = newLastName;
+  set salary(String newSalary) {
+    _taxForm.salary = newSalary;
     notifyListeners();
   }
 
